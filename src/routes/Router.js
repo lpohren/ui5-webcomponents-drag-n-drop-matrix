@@ -10,6 +10,7 @@ const TodoEdit = lazy(() => import('../pages/Todo/Edit/TodoEdit'));
 const NotFound = lazy(() => import('../pages/Fallback/NotFound'));
 const Buggy = lazy(() => import('../pages/Fallback/Buggy'));
 const FullScreenTest = lazy(() => import('../pages/FullScreenTest/FullScreenTest'));
+const MatrixTest = lazy(() => import('../pages/MatrixTest/MatrixTest'));
 
 const Router = () => {
   return (
@@ -19,6 +20,7 @@ const Router = () => {
         <RouteWithAuthorizationRestriction allowedAuthorities={['canAccessTodoListPage']} authorityKey="permissions" path={ROUTES.TODO_LIST} component={TodoList} />
         <RouteWithAuthorizationRestriction allowedAuthorities={['canAccessTodoEditPage']} authorityKey="permissions" path={ROUTES.TODO_EDIT} component={TodoEdit} />
         <Route path={ROUTES.FULL_SCREEN_TEST} exact component={FullScreenTest} />
+        <Route path={ROUTES.MATRIX_TEST} exact component={MatrixTest} />
         <Route path={ROUTES.BUGGY} exact component={Buggy} />
         <Route path={ROUTES.NOT_FOUND} exact component={NotFound} />
         <Route path={ROUTES.ANY} component={NotFound} />
