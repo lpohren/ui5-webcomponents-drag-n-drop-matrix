@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Button } from '@ui5/webcomponents-react';
 
 const styles = {
@@ -8,7 +8,7 @@ const styles = {
     backgroundColor: 'lightgreen',
     boxSizing: 'border-box',
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
   },
   filterContainer: {
     backgroundColor: 'lightseagreen',
@@ -27,9 +27,9 @@ const styles = {
   },
   fullscreenButton: {
     right: 0,
-    position: 'absolute'
-  }
-}
+    position: 'absolute',
+  },
+};
 
 const FullScreenTest = () => {
   const [fullscreen, setFullscreen] = useState(true);
@@ -39,8 +39,10 @@ const FullScreenTest = () => {
   return (
     <div style={styles.outerContainer}>
       <div style={styles.filterContainer}></div>
-      <div style={{...styles.matrix, ...fullScreenStyle}}>
-        <Button onClick={() => setFullscreen(!fullscreen)} style={styles.fullscreenButton}>Full screen</Button>
+      <div style={{ ...styles.matrix, ...fullScreenStyle }}>
+        <Button onClick={() => setFullscreen(!fullscreen)} style={styles.fullscreenButton}>
+          Full screen
+        </Button>
       </div>
     </div>
   );
