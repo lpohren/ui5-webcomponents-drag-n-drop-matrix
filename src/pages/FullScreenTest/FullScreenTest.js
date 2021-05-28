@@ -11,6 +11,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
   },
+
   filterContainer: {
     backgroundColor: 'lightseagreen',
     minHeight: '10rem',
