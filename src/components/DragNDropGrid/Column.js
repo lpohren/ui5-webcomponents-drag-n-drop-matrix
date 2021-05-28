@@ -12,10 +12,8 @@ const TaskList = styled.div`
   transition: background-color 0.2s ease;
   background-color: ${(props) => (props.isDraggingOver ? '#c2c2c1' : '#eeeeec')};
   flex-grow: 1;
-  min-height: 100px;
   border-radius: 12px;
   display: flex;
-  min-width: 300px;
   align-content: flex-start;
   flex-wrap: wrap;
 `;
@@ -27,7 +25,7 @@ const Column = (props) => {
         {(provided, snapshot) => (
           <TaskList {...provided.droppableProps} ref={provided.innerRef} isDraggingOver={snapshot.isDraggingOver}>
             {props.tasks.map((task, index) => (
-              <Task key={task.id} task={task} index={index} activeType={props.activeType} setActiveType={props.setActiveType} />
+              <Task key={task.id} task={task} index={index} />
             ))}
             {provided.placeholder}
           </TaskList>

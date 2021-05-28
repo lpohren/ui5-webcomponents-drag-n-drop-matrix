@@ -4,10 +4,6 @@ import Column from './Column';
 import { DragDropContext } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 
-const sortList = (list, prop) => {
-  return list.sort((a, b) => (a[prop] > b[prop] ? 1 : b[prop] > a[prop] ? -1 : 0));
-};
-
 const Container = styled.div`
   min-height: 0;
   background-color: white;
@@ -18,7 +14,6 @@ const Container = styled.div`
 
 function DragGrid() {
   const [dataState, setDataState] = useState(initialData);
-  const [overType, setoverType] = useState();
 
   const onDragEnd = (result) => {
     const { destination, source, draggableId } = result;
@@ -68,7 +63,7 @@ function DragGrid() {
           const column = dataState.columns[columnId];
           const tasks = column.tasksIds.map((taskId) => dataState.tasks[taskId]);
           return (
-            <Column key={columnId} tasks={tasks} column={column} activeType={overType} setActiveType={setoverType}>
+            <Column key={columnId} tasks={tasks} column={column}>
               {column.title}
             </Column>
           );

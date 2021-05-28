@@ -57,13 +57,13 @@ const useMarkAsDiscussed = (ref) => {
   };
 
   useEffect(() => {
-    ref.current.addEventListener('contextmenu', handleContextMenu, false);
-  }, []);
+    const handleContextMenu = (e) => {
+      e.preventDefault();
+      setMarkedAsDiscussed(!markedAsDiscussedRef.current);
+    };
 
-  const handleContextMenu = (e) => {
-    e.preventDefault();
-    setMarkedAsDiscussed(!markedAsDiscussedRef.current);
-  };
+    ref.current.addEventListener('contextmenu', handleContextMenu, false);
+  }, [ref]);
 
   return markedAsDiscussed;
 };
