@@ -38,7 +38,6 @@ const styles = {
 
 const FullScreenTest = () => {
   const [fullscreen, setFullscreen] = useState(false);
-
   const fullScreenStyle = fullscreen && styles.fullScreen;
 
   return (

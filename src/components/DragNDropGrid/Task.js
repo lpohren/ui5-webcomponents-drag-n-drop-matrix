@@ -1,3 +1,4 @@
+import { useRef, useEffect, useState } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 
@@ -5,19 +6,11 @@ const Container = styled.div`
   margin: 2px;
   padding: 8px;
   height: 40px;
-  background-color: ${(props) => (props.isDragging ? 'lightgreen' : '#555278')};
+  background-color: ${(props) => (props.markedAsDiscussed ? 'lightgreen' : '#555278')};
   color: white;
   font-size: 12px;
-  border-right: 6px solid ${(props) => borderColor(props)};
   border-radius: 6px;
 `;
-
-const borderColor = (props) => {
-  if (props.task.type === props.activeType) {
-    return '#37c22b';
-  }
-  return 'black';
-};
 
 // This is a bug fix, since the app does not support horizontal and vertical drag and drop, this code IS IMPORTANT and disables the cards reordering
 const getStyle = (style, snapshot) => {
@@ -25,7 +18,6 @@ const getStyle = (style, snapshot) => {
   if (!snapshot.isDropAnimating) {
     return style;
   }
-
   return {
     ...style,
     // cannot be 0, but make it super tiny
@@ -34,31 +26,39 @@ const getStyle = (style, snapshot) => {
 };
 
 const Task = (props) => {
-  const onMouseEnterHandler = (type) => {
-    props.setActiveType(type);
-  };
-  const onMouseLeaveHandle = (type) => {
-    props.setActiveType();
-  };
-
   return (
     <Draggable draggableId={props.task.id} index={props.index}>
       {(provided, snapshot) => (
-        <Container
-          ref={provided.innerRef}
-          {...provided.draggableProps}
-          {...provided.dragHandleProps}
-          style={getStyle(provided.draggableProps.style, snapshot)}
-          isDragging={snapshot.isDragging}
-          task={props.task}
-          activeType={props.activeType}
-          onMouseEnter={() => onMouseEnterHandler(props.task.type)}
-          onMouseLeave={() => onMouseLeaveHandle(props.task.type)}
-        >
-          {props.task.content}
-        </Container>
+        <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} style={getStyle(provided.draggableProps.style, snapshot)}>
+          <Card item={props} />
+        </div>
       )}
     </Draggable>
+  );
+};
+
+const Card = ({ item }) => {
+  const cardRef = useRef();
+  const [markedAsDiscussed, _setMarkedAsDiscussed] = useState(false);
+  const markedAsDiscussedRef = useRef(markedAsDiscussed);
+  const setMarkedAsDiscussed = (data) => {
+    markedAsDiscussedRef.current = data;
+    _setMarkedAsDiscussed(data);
+  };
+
+  useEffect(() => {
+    cardRef.current.addEventListener('contextmenu', handleContextMenu, false);
+  }, []);
+
+  const handleContextMenu = (e) => {
+    e.preventDefault();
+    setMarkedAsDiscussed(!markedAsDiscussedRef.current);
+  };
+
+  return (
+    <Container markedAsDiscussed={markedAsDiscussed} ref={cardRef}>
+      {item.task.content}
+    </Container>
   );
 };
 
