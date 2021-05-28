@@ -39,6 +39,16 @@ const Task = (props) => {
 
 const Card = ({ item }) => {
   const cardRef = useRef();
+  const markedAsDiscussed = useMarkAsDiscussed(cardRef);
+
+  return (
+    <Container markedAsDiscussed={markedAsDiscussed} ref={cardRef}>
+      {item.task.content}
+    </Container>
+  );
+};
+
+const useMarkAsDiscussed = (ref) => {
   const [markedAsDiscussed, _setMarkedAsDiscussed] = useState(false);
   const markedAsDiscussedRef = useRef(markedAsDiscussed);
   const setMarkedAsDiscussed = (data) => {
@@ -47,7 +57,7 @@ const Card = ({ item }) => {
   };
 
   useEffect(() => {
-    cardRef.current.addEventListener('contextmenu', handleContextMenu, false);
+    ref.current.addEventListener('contextmenu', handleContextMenu, false);
   }, []);
 
   const handleContextMenu = (e) => {
@@ -55,11 +65,7 @@ const Card = ({ item }) => {
     setMarkedAsDiscussed(!markedAsDiscussedRef.current);
   };
 
-  return (
-    <Container markedAsDiscussed={markedAsDiscussed} ref={cardRef}>
-      {item.task.content}
-    </Container>
-  );
+  return markedAsDiscussed;
 };
 
 export default Task;
