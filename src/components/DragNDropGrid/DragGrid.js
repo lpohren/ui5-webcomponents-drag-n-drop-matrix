@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import initialData from './initial-data';
 import Column from './Column';
-import { DragDropContext} from 'react-beautiful-dnd';
+import { DragDropContext } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 
 const sortList = (list, prop) => {
-  return list.sort((a,b) => (a[prop] > b[prop]) ? 1 : ((b[prop] > a[prop]) ? -1 : 0))
-}
+  return list.sort((a, b) => (a[prop] > b[prop] ? 1 : b[prop] > a[prop] ? -1 : 0));
+};
 
 const Container = styled.div`
   height: calc(100vh - 44px);
@@ -18,20 +18,18 @@ const Container = styled.div`
 `;
 
 function DragGrid() {
-  const [dataState, setDataState] = useState(initialData)
-  const [overType, setoverType] = useState()
+  const [dataState, setDataState] = useState(initialData);
+  const [overType, setoverType] = useState();
 
-  const onDragEnd = result => {
-    const { destination, source, draggableId}  = result;
+  const onDragEnd = (result) => {
+    const { destination, source, draggableId } = result;
 
     if (!destination) {
-      return
+      return;
     }
 
-    if (
-      destination.droppableId === source.droppableId
-    ){
-      return
+    if (destination.droppableId === source.droppableId) {
+      return;
     }
 
     const start = dataState.columns[source.droppableId];
@@ -45,12 +43,12 @@ function DragGrid() {
     const newStartColumn = {
       ...start,
       tasksIds: startTaskIds,
-    }
+    };
 
     const newFinishColumn = {
       ...finish,
       tasksIds: finishTaskIds,
-    }
+    };
 
     const newState = {
       ...dataState,
@@ -58,28 +56,27 @@ function DragGrid() {
         ...dataState.columns,
         [newStartColumn.id]: newStartColumn,
         [newFinishColumn.id]: newFinishColumn,
-      }
-    }
+      },
+    };
 
     setDataState(newState);
-  }
+  };
 
   return (
     <Container>
       <DragDropContext onDragEnd={onDragEnd}>
-      {
-        dataState.columnOrder.map((columnId) => {
+        {dataState.columnOrder.map((columnId) => {
           const column = dataState.columns[columnId];
-          const tasks = column.tasksIds.map(taskId => dataState.tasks[taskId])
+          const tasks = column.tasksIds.map((taskId) => dataState.tasks[taskId]);
           return (
-            <Column key={columnId} tasks={tasks} column={column} activeType={overType} setActiveType={setoverType}>{column.title}</Column>
-          )
-        })
-      }
+            <Column key={columnId} tasks={tasks} column={column} activeType={overType} setActiveType={setoverType}>
+              {column.title}
+            </Column>
+          );
+        })}
       </DragDropContext>
     </Container>
-
-  )
+  );
 }
 
 export default DragGrid;
