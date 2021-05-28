@@ -9,8 +9,7 @@ const sortList = (list, prop) => {
 };
 
 const Container = styled.div`
-  height: calc(100vh - 44px);
-  width: 100vw;
+  min-height: 0;
   background-color: white;
   display: grid;
   grid-template-rows: 3fr 5fr 1fr;

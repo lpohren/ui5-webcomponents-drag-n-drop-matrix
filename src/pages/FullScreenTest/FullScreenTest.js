@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from '@ui5/webcomponents-react';
+import DragGrid from '../../components/DragNDropGrid/DragGrid';
 
 const styles = {
   outerContainer: {
@@ -12,11 +13,14 @@ const styles = {
   },
   filterContainer: {
     backgroundColor: 'lightseagreen',
-    height: '5rem',
+    minHeight: '10rem',
   },
   matrix: {
     flex: 1,
+    minHeight: 0,
     backgroundColor: 'lightsalmon',
+    display: 'flex',
+    flexDirection: 'column',
   },
   fullScreen: {
     top: 0,
@@ -32,7 +36,7 @@ const styles = {
 };
 
 const FullScreenTest = () => {
-  const [fullscreen, setFullscreen] = useState(true);
+  const [fullscreen, setFullscreen] = useState(false);
 
   const fullScreenStyle = fullscreen && styles.fullScreen;
 
@@ -43,6 +47,7 @@ const FullScreenTest = () => {
         <Button onClick={() => setFullscreen(!fullscreen)} style={styles.fullscreenButton}>
           Full screen
         </Button>
+        <DragGrid />
       </div>
     </div>
   );
