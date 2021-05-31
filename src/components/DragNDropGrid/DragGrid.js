@@ -14,8 +14,8 @@ const Container = styled.div`
 
 // to be used later!
 const sortListAlphabetically = (list, prop) => {
-  return list.sort((a,b) => (a[prop] > b[prop]) ? 1 : ((b[prop] > a[prop]) ? -1 : 0))
-}
+  return list.sort((a, b) => (a[prop] > b[prop] ? 1 : b[prop] > a[prop] ? -1 : 0));
+};
 
 function DragGrid() {
   const [dataState, setDataState] = useState(initialData);

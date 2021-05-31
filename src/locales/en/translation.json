@@ -3,7 +3,7 @@
   "helmet.title.app": "TodoList App",
   "helmet.title.error": "Buggy Component - TodoList App",
   "helmet.title.notfound": "NotFound - TodoList App",
-  "shell.title": "TodoList Application",
+  "shell.title": "Cards matrix",
   "shell.logo.alt": "SAP Logo",
   "shell.button.user.settings": "User Settings",
   "shell.button.user.settings.item.themeSwitch": "Theme",
