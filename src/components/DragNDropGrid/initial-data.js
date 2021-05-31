@@ -82,7 +82,7 @@ const initialData = {
     },
     'column-3:3': {
       id: 'column-3:3',
-      tasksIds: ['task-1', 'task-3', 'task-7', 'task-8', 'task-4', 'task-10', 'task-11', 'task-9', 'task-15', 'task-16', 'task-17', 'task-12', 'task-13','task-14'],
+      tasksIds: ['task-1', 'task-3', 'task-7', 'task-8', 'task-4', 'task-10', 'task-11', 'task-9', 'task-15', 'task-16', 'task-17', 'task-12', 'task-13', 'task-14'],
     },
     'column-3:4': {
       id: 'column-3:4',
