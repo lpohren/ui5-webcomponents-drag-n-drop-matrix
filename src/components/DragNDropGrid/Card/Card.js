@@ -13,7 +13,12 @@ const Container = styled.div`
 `;
 
 const NameBox = styled.div`
-  font-weight: bold;
+  & > div {
+    float: left;
+  }
+  & > div:first-child {
+    font-weight: bold;
+  }
 `;
 
 const LastLine = styled.div`
@@ -28,10 +33,15 @@ const LastLine = styled.div`
 const Card = ({ item }) => {
   const cardRef = useRef();
   const markedAsDiscussed = useMarkAsDiscussed(cardRef);
+  const nickname = item.task.content.split(' ')[0];
+  const fullName = item.task.content.split(' ').slice(1).join(' ');
 
   return (
     <Container markedAsDiscussed={markedAsDiscussed} ref={cardRef}>
-      <NameBox>{item.task.content}</NameBox>
+      <NameBox>
+        <div>{nickname}</div>
+        <div> {'\xA0' + fullName}</div>
+      </NameBox>
       <div>FG-511</div>
       <LastLine>
         <div>333</div>
