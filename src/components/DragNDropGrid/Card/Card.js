@@ -1,51 +1,43 @@
 import { useRef, useEffect, useState } from 'react';
-import { Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 
-import { STYLES } from '../../util/constants';
+import { STYLES } from '../../../util/constants';
 
 const Container = styled.div`
   margin: 2px;
-  padding: 8px;
-  height: 40px;
+  padding: 3px;
   background-color: ${(props) => (props.markedAsDiscussed ? STYLES.CARD_COLOR_MARKED : STYLES.CARD_COLOR_PRIMARY)};
   color: ${STYLES.CARD_FONT_COLOR};
-  font-size: 12px;
+  font-size: 10px;
   border-radius: 6px;
 `;
 
-// This is a bug fix, since the app does not support horizontal and vertical drag and drop, this code IS IMPORTANT and disables the cards reordering
-const getStyle = (style, snapshot) => {
-  if (!snapshot.isDragging) return {};
-  if (!snapshot.isDropAnimating) {
-    return style;
+const NameBox = styled.div`
+  font-weight: bold;
+`;
+
+const LastLine = styled.div`
+  overflow: hidden;
+  & > div {
+    float: left;
   }
-  return {
-    ...style,
-    // cannot be 0, but make it super tiny
-    transitionDuration: `0.001s`,
-  };
-};
-
-const Task = (props) => {
-  return (
-    <Draggable draggableId={props.task.id} index={props.index}>
-      {(provided, snapshot) => (
-        <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} style={getStyle(provided.draggableProps.style, snapshot)}>
-          <Card item={props} />
-        </div>
-      )}
-    </Draggable>
-  );
-};
-
+  & > div:not(:last-child) {
+    margin-right: 1rem;
+  }
+`;
 const Card = ({ item }) => {
   const cardRef = useRef();
   const markedAsDiscussed = useMarkAsDiscussed(cardRef);
 
   return (
     <Container markedAsDiscussed={markedAsDiscussed} ref={cardRef}>
-      {item.task.content}
+      <NameBox>{item.task.content}</NameBox>
+      <div>FG-511</div>
+      <LastLine>
+        <div>333</div>
+        <div>PIC</div>
+        <div>APR</div>
+      </LastLine>
     </Container>
   );
 };
@@ -70,4 +62,4 @@ const useMarkAsDiscussed = (ref) => {
   return markedAsDiscussed;
 };
 
-export default Task;
+export default Card;

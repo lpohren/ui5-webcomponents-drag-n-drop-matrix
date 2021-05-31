@@ -1,6 +1,6 @@
 import { Droppable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
-import Task from './Task';
+import DragCard from './Card/DragCard';
 
 const Container = styled.div`
   margin: 4px;
@@ -25,7 +25,7 @@ const Column = (props) => {
         {(provided, snapshot) => (
           <TaskList {...provided.droppableProps} ref={provided.innerRef} isDraggingOver={snapshot.isDraggingOver}>
             {props.tasks.map((task, index) => (
-              <Task key={task.id} task={task} index={index} />
+              <DragCard key={task.id} task={task} index={index} />
             ))}
             {provided.placeholder}
           </TaskList>
