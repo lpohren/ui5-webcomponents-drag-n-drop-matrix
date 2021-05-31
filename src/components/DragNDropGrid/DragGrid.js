@@ -8,9 +8,14 @@ const Container = styled.div`
   min-height: 0;
   background-color: white;
   display: grid;
-  grid-template-rows: 3fr 5fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 `;
+
+// to be used later!
+const sortListAlphabetically = (list, prop) => {
+  return list.sort((a,b) => (a[prop] > b[prop]) ? 1 : ((b[prop] > a[prop]) ? -1 : 0))
+}
 
 function DragGrid() {
   const [dataState, setDataState] = useState(initialData);
@@ -32,7 +37,7 @@ function DragGrid() {
     const startTaskIds = Array.from(start.tasksIds);
     const finishTaskIds = Array.from(finish.tasksIds);
     startTaskIds.splice(source.index, 1);
-    finishTaskIds.splice(destination.index, 0, draggableId);
+    finishTaskIds.push(draggableId);
 
     const newStartColumn = {
       ...start,
