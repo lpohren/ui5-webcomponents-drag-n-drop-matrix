@@ -2,12 +2,14 @@ import { useRef, useEffect, useState } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 
+import { STYLES } from '../../util/constants';
+
 const Container = styled.div`
   margin: 2px;
   padding: 8px;
   height: 40px;
-  background-color: ${(props) => (props.markedAsDiscussed ? 'lightgreen' : '#555278')};
-  color: white;
+  background-color: ${(props) => (props.markedAsDiscussed ? STYLES.CARD_COLOR_MARKED : STYLES.CARD_COLOR_PRIMARY)};
+  color: ${STYLES.CARD_FONT_COLOR};
   font-size: 12px;
   border-radius: 6px;
 `;
