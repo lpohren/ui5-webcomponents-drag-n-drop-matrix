@@ -1,25 +1,20 @@
 import React, { useState } from 'react';
 import { Button } from '@ui5/webcomponents-react';
+
 import DragGrid from '../../components/DragNDropGrid/DragGrid';
+import GridFilters from '../../components/GridFilters/GridFilters';
 
 const styles = {
   outerContainer: {
     height: 'calc(100vh - 44px)',
     width: '100vw',
-    backgroundColor: 'lightgreen',
     boxSizing: 'border-box',
     display: 'flex',
     flexDirection: 'column',
   },
-
-  filterContainer: {
-    backgroundColor: 'lightseagreen',
-    minHeight: '10rem',
-  },
   matrix: {
     flex: 1,
     minHeight: 0,
-    backgroundColor: 'lightsalmon',
     display: 'flex',
     flexDirection: 'column',
   },
@@ -42,7 +37,7 @@ const FullScreenTest = () => {
 
   return (
     <div style={styles.outerContainer}>
-      <div style={styles.filterContainer}></div>
+      <GridFilters />
       <div style={{ ...styles.matrix, ...fullScreenStyle }}>
         <Button onClick={() => setFullscreen(!fullscreen)} style={styles.fullscreenButton}>
           Full screen
