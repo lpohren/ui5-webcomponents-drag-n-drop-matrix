@@ -6,6 +6,7 @@
     "Orta.vscode-jest",
     "dbaeumer.vscode-eslint",
     "vscode-icons-team.vscode-icons",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "jpoissonnier.vscode-styled-components"
   ]
 }

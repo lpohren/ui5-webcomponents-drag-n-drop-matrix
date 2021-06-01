@@ -3,7 +3,7 @@ import { FlexBox, ComboBoxItem, Input, Icon, ComboBox } from '@ui5/webcomponents
 
 const DropDown = () => {
   return (
-    <ComboBox style={{marginLeft: '1rem'}}>
+    <ComboBox style={{ marginLeft: '1rem' }}>
       <ComboBoxItem text="ComboBox Entry 1" />
       <ComboBoxItem text="ComboBox Entry 2" />
       <ComboBoxItem text="ComboBox Entry 3" />
