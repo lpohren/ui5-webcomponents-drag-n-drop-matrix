@@ -8,6 +8,7 @@ const Container = styled.div`
   min-height: 0;
   background-color: white;
   display: grid;
+  gap: 4px;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 `;
