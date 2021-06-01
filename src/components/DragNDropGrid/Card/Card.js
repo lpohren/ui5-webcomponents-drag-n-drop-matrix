@@ -10,6 +10,8 @@ const Container = styled.div`
   color: ${STYLES.CARD_FONT_COLOR};
   font-size: 10px;
   border-radius: 6px;
+  border: 1px solid #D3D7D9;
+  border-left: 6px solid ${(props) => (props.markedAsDiscussed ? STYLES.CARD_BORDER_MARKED : STYLES.CARD_BORDER_PRIMARY)};
 `;
 
 const NameBox = styled.div`

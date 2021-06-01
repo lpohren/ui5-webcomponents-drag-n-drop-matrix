@@ -55,4 +55,12 @@ export const DEFAULT_ACCENT4 = {
   CARD_FONT_COLOR: 'black',
 };
 
-export const STYLES = BELIZE_STANDARD_PRIMARY;
+export const DEFAULT_CALENDAR = {
+  CARD_COLOR_PRIMARY: '#ebf3fa',
+  CARD_BORDER_PRIMARY: '#0854a0',
+  CARD_COLOR_MARKED: '#f3f4ef',
+  CARD_BORDER_MARKED: '#8b9668',
+  CARD_FONT_COLOR: 'black',
+};
+
+export const STYLES = DEFAULT_CALENDAR;
