@@ -15,16 +15,16 @@ const CardsList = styled.div`
 
 const Column = (props) => {
   return (
-      <Droppable droppableId={props.column.id} direction="horizontal">
-        {(provided, snapshot) => (
-          <CardsList {...provided.droppableProps} ref={provided.innerRef} isDraggingOver={snapshot.isDraggingOver}>
-            {props.tasks.map((task, index) => (
-              <DragCard key={task.id} task={task} index={index} />
-            ))}
-            {provided.placeholder}
-          </CardsList>
-        )}
-      </Droppable>
+    <Droppable droppableId={props.column.id} direction="horizontal">
+      {(provided, snapshot) => (
+        <CardsList {...provided.droppableProps} ref={provided.innerRef} isDraggingOver={snapshot.isDraggingOver}>
+          {props.tasks.map((task, index) => (
+            <DragCard key={task.id} task={task} index={index} />
+          ))}
+          {provided.placeholder}
+        </CardsList>
+      )}
+    </Droppable>
   );
 };
 

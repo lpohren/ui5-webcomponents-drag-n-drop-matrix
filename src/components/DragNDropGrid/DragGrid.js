@@ -9,8 +9,8 @@ const Container = styled.div`
   background-color: white;
   display: grid;
   gap: 4px;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: minmax(1rem, auto) minmax(1rem, auto) minmax(1rem, auto) minmax(1rem, auto) minmax(1rem, auto);
+  grid-template-columns: minmax(1rem, auto) minmax(1rem, auto) minmax(1rem, auto) minmax(1rem, auto) minmax(1rem, auto);
 `;
 
 // to be used later!
