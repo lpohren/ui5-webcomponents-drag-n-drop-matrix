@@ -1,23 +1,26 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import { Button } from '@ui5/webcomponents-react';
 
 import DragGrid from '../../components/DragNDropGrid/DragGrid';
 import GridFilters from '../../components/GridFilters/GridFilters';
 
+const OuterContainer = styled.div`
+  height: calc(100vh - 44px);
+    width: 100vw;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+`;
+
+const GridContainer = styled.div`
+  flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+`;
+
 const styles = {
-  outerContainer: {
-    height: 'calc(100vh - 44px)',
-    width: '100vw',
-    boxSizing: 'border-box',
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  matrix: {
-    flex: 1,
-    minHeight: 0,
-    display: 'flex',
-    flexDirection: 'column',
-  },
   fullScreen: {
     top: 0,
     position: 'fixed',
@@ -36,15 +39,15 @@ const FullScreenTest = () => {
   const fullScreenStyle = fullscreen && styles.fullScreen;
 
   return (
-    <div style={styles.outerContainer}>
+    <OuterContainer>
       <GridFilters />
-      <div style={{ ...styles.matrix, ...fullScreenStyle }}>
+      <GridContainer style={{...fullScreenStyle}}>
         <Button onClick={() => setFullscreen(!fullscreen)} style={styles.fullscreenButton}>
           Full screen
         </Button>
         <DragGrid />
-      </div>
-    </div>
+      </GridContainer>
+    </OuterContainer>
   );
 };
 

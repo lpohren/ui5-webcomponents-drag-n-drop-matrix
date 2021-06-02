@@ -15,7 +15,7 @@ const CardsList = styled.div`
 
 const Column = (props) => {
   return (
-    <Droppable droppableId={props.column.id} direction="horizontal">
+    <Droppable droppableId={props.column.id}>
       {(provided, snapshot) => (
         <CardsList {...provided.droppableProps} ref={provided.innerRef} isDraggingOver={snapshot.isDraggingOver}>
           {props.tasks.map((task, index) => (
