@@ -1,0 +1,165 @@
+const initialData = {
+  tasks: {
+    'task-1': { id: 'task-1', content: 'Ann-Mayer, Anneke Mayer', type: 'EXERCISE' },
+    'task-2': { id: 'task-2', content: 'Kat-Bauer, Katrin Bauer', type: 'EXERCISE' },
+    'task-3': { id: 'task-3', content: 'Pol-Weiß, Poldi Weiß', type: 'EXERCISE' },
+    'task-4': { id: 'task-4', content: 'Rüd-Schrei, Rüdiger Schreiber', type: 'EXERCISE' },
+    'task-5': { id: 'task-5', content: 'Mar-Böhm, Marthe Böhm', type: 'EAT' },
+    'task-6': { id: 'task-6', content: 'Alw-Baa, Alwin Baasch', type: 'EAT' },
+    'task-7': { id: 'task-7', content: 'Uwe-Lang, Uwe Lang', type: 'EAT' },
+    'task-8': { id: 'task-8', content: 'Die-Brauer, Diederick Brauer', type: 'PLAY' },
+    'task-9': { id: 'task-9', content: 'Men-Hall, Menno Hall', type: 'PLAY' },
+    'task-10': { id: 'task-10', content: 'Brun-Zieg, Brunnhilde Ziegler', type: 'PLAY' },
+    'task-11': { id: 'task-11', content: 'SomZimmer, Sommer Zimmermann', type: 'PLAY' },
+    'task-12': { id: 'task-12', content: 'Ed-Messer, Edsel Messer', type: 'EXERCISE' },
+    'task-13': { id: 'task-13', content: 'Kun-Vogt, Kunigunde Vogt', type: 'EXERCISE' },
+    'task-14': { id: 'task-14', content: 'Raf-Blau, Rafael Blau', type: 'EXERCISE' },
+    'task-15': { id: 'task-15', content: 'Wil-Stein, Wilhelmine Stein', type: 'EXERCISE' },
+    'task-16': { id: 'task-16', content: 'Al-Schuster, Alric Schuster', type: 'EAT' },
+    'task-17': { id: 'task-17', content: 'As-Steube, Astor Steube', type: 'EAT' },
+    'task-18': { id: 'task-18', content: 'Ew-Jäger, Ewald Jäger', type: 'EAT' },
+    'task-19': { id: 'task-19', content: 'Ric-Schubert, Ricarda Schubert', type: 'PLAY' },
+    'task-20': { id: 'task-20', content: 'Bruno-Bier, Bruno Biermann', type: 'PLAY' },
+    'task-21': { id: 'task-21', content: 'Da-Schmitz, Dachs Schmitz', type: 'PLAY' },
+    'task-22': { id: 'task-22', content: 'Ew-Jäger, Ewald Jäger', type: 'EXERCISE' },
+    'task-23': { id: 'task-23', content: 'Ric-Schubert, Ricarda Schubert', type: 'EXERCISE' },
+    'task-24': { id: 'task-24', content: 'Lor-Fisch, Lorenz Fischer', type: 'EXERCISE' },
+    'task-25': { id: 'task-25', content: 'Da-Schmitz, Dachs Schmitz', type: 'EXERCISE' },
+    'task-26': { id: 'task-26', content: 'Sel-Maier, Selma Maier', type: 'EAT' },
+    'task-27': { id: 'task-27', content: 'Luia-Pohren, Luia Henrich Pohren', type: 'EAT' },
+    'task-28': { id: 'task-28', content: 'Ans-Weim, Anselm Weimann', type: 'EAT' },
+    'task-29': { id: 'task-29', content: 'Rein-Horn, Rein Horn', type: 'PLAY' },
+    'task-30': { id: 'task-30', content: 'Aug-Pohl, August Pohl', type: 'PLAY' },
+  },
+  columns: {
+    'column-1:1': {
+      id: 'column-1:1',
+      tasksIds: ['task-23', 'task-24'],
+    },
+    'column-1:2': {
+      id: 'column-1:2',
+      tasksIds: [],
+    },
+    'column-1:3': {
+      id: 'column-1:3',
+      tasksIds: [],
+    },
+    'column-1:4': {
+      id: 'column-1:4',
+      tasksIds: [],
+    },
+    'column-1:5': {
+      id: 'column-1:5',
+      tasksIds: [],
+    },
+    'column-2:1': {
+      id: 'column-2:1',
+      tasksIds: ['task-2'],
+    },
+    'column-2:2': {
+      id: 'column-2:2',
+      tasksIds: ['task-5'],
+    },
+    'column-2:3': {
+      id: 'column-2:3',
+      tasksIds: ['task-6'],
+    },
+    'column-2:4': {
+      id: 'column-2:4',
+      tasksIds: [],
+    },
+    'column-2:5': {
+      id: 'column-2:5',
+      tasksIds: [],
+    },
+    'column-3:1': {
+      id: 'column-3:1',
+      tasksIds: [],
+    },
+    'column-3:2': {
+      id: 'column-3:2',
+      tasksIds: ['task-18', 'task-19', 'task-20'],
+    },
+    'column-3:3': {
+      id: 'column-3:3',
+      tasksIds: ['task-1', 'task-3', 'task-7', 'task-8', 'task-4', 'task-10', 'task-11', 'task-9', 'task-15', 'task-16', 'task-17', 'task-12', 'task-13', 'task-14'],
+    },
+    'column-3:4': {
+      id: 'column-3:4',
+      tasksIds: ['task-26', 'task-27', 'task-28', 'task-29', 'task-30'],
+    },
+    'column-3:5': {
+      id: 'column-3:5',
+      tasksIds: ['task-25'],
+    },
+    'column-4:1': {
+      id: 'column-4:1',
+      tasksIds: [],
+    },
+    'column-4:2': {
+      id: 'column-4:2',
+      tasksIds: [],
+    },
+    'column-4:3': {
+      id: 'column-4:3',
+      tasksIds: [],
+    },
+    'column-4:4': {
+      id: 'column-4:4',
+      tasksIds: [],
+    },
+    'column-4:5': {
+      id: 'column-4:5',
+      tasksIds: [],
+    },
+    'column-5:1': {
+      id: 'column-5:1',
+      tasksIds: [],
+    },
+    'column-5:2': {
+      id: 'column-5:2',
+      tasksIds: [],
+    },
+    'column-5:3': {
+      id: 'column-5:3',
+      tasksIds: [],
+    },
+    'column-5:4': {
+      id: 'column-5:4',
+      tasksIds: ['task-21'],
+    },
+    'column-5:5': {
+      id: 'column-5:5',
+      tasksIds: ['task-22'],
+    },
+  },
+  columnOrder: [
+    'column-5:1',
+    'column-5:2',
+    'column-5:3',
+    'column-5:4',
+    'column-5:5',
+    'column-4:1',
+    'column-4:2',
+    'column-4:3',
+    'column-4:4',
+    'column-4:5',
+    'column-3:1',
+    'column-3:2',
+    'column-3:3',
+    'column-3:4',
+    'column-3:5',
+    'column-2:1',
+    'column-2:2',
+    'column-2:3',
+    'column-2:4',
+    'column-2:5',
+    'column-1:1',
+    'column-1:2',
+    'column-1:3',
+    'column-1:4',
+    'column-1:5',
+  ],
+};
+
+export default initialData;
