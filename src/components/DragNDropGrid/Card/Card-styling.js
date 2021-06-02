@@ -6,8 +6,8 @@ export const Container = styled.div`
   padding: 3px;
   background-color: ${(props) => (props.markedAsDiscussed ? STYLES.CARD_COLOR_MARKED : STYLES.CARD_COLOR_PRIMARY)};
   color: ${STYLES.CARD_FONT_COLOR};
-  font-size: 10px;
-  border-radius: 6px;
+  font-size: 8px;
+  border-radius: 5px;
   border: 1px solid #d3d7d9;
   border-left: 6px solid ${(props) => (props.markedAsDiscussed ? STYLES.CARD_BORDER_MARKED : STYLES.CARD_BORDER_PRIMARY)};
 `;

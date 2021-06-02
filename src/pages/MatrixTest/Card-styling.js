@@ -5,8 +5,8 @@ export const Container = styled.div`
   padding: 3px;
   background-color: lightgreen;
   color: black;
-  font-size: 10px;
-  border-radius: 6px;
+  font-size: 8px;
+  border-radius: 5px;
 `;
 
 export const NameBox = styled.div`

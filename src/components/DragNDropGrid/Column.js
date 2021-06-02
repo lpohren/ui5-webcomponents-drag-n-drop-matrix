@@ -6,7 +6,6 @@ const CardsList = styled.div`
   padding: 8px;
   transition: background-color 0.2s ease;
   background-color: ${(props) => (props.isDraggingOver ? '#c2c2c1' : '#F3F4F5')};
-  flex-grow: 1;
   border-radius: 12px;
   display: flex;
   align-content: flex-start;

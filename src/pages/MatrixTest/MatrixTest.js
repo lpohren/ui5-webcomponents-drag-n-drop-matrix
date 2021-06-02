@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import initialData from './initial-data';
 import { Container, NameBox, LastLine } from './Card-styling';
@@ -9,17 +9,17 @@ const OuterContainer = styled.div`
   background-color: black;
 
   display: grid;
-  gap: 4px;
-  grid-template-rows: minmax(1rem, auto) minmax(1rem, auto) minmax(1rem, auto) minmax(1rem, auto) minmax(1rem, auto);
-  grid-template-columns: minmax(1rem, auto) minmax(1rem, auto) minmax(1rem, auto) minmax(1rem, auto) minmax(1rem, auto);
+  gap: 3px;
+  grid-template-rows: repeat(5, minmax(3rem, auto));
+  grid-template-columns: repeat(5, minmax(3rem, auto));
+  grid-auto-flow: column;
 `;
 
 const CardsList = styled.div`
-  padding: 8px;
+  padding: 4px;
   transition: background-color 0.2s ease;
   background-color: lightslategrey;
-  flex-grow: 1;
-  border-radius: 12px;
+  border-radius: 10px;
   display: flex;
   align-content: flex-start;
   flex-wrap: wrap;
@@ -31,16 +31,16 @@ const MatrixTest = () => {
   return (
     <OuterContainer>
       {dataState.columnOrder.map((columnId) => {
-          const column = dataState.columns[columnId];
-          const tasks = column.tasksIds.map((taskId) => dataState.tasks[taskId]);
-          return (
-            <CardsList key={columnId}>
-              {tasks.map((task) => (
-                <Card key={task.id} item={task} />
-              ))}
-            </CardsList>
-          );
-        })}
+        const column = dataState.columns[columnId];
+        const tasks = column.tasksIds.map((taskId) => dataState.tasks[taskId]);
+        return (
+          <CardsList key={columnId}>
+            {tasks.map((task) => (
+              <Card key={task.id} item={task} />
+            ))}
+          </CardsList>
+        );
+      })}
     </OuterContainer>
   );
 };

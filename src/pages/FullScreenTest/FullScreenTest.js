@@ -7,17 +7,17 @@ import GridFilters from '../../components/GridFilters/GridFilters';
 
 const OuterContainer = styled.div`
   height: calc(100vh - 44px);
-    width: 100vw;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
+  width: 100vw;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 `;
 
 const GridContainer = styled.div`
   flex: 1;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
 `;
 
 const styles = {
@@ -41,7 +41,7 @@ const FullScreenTest = () => {
   return (
     <OuterContainer>
       <GridFilters />
-      <GridContainer style={{...fullScreenStyle}}>
+      <GridContainer style={{ ...fullScreenStyle }}>
         <Button onClick={() => setFullscreen(!fullscreen)} style={styles.fullscreenButton}>
           Full screen
         </Button>
