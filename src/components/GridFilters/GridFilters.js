@@ -21,7 +21,6 @@ const GridFilters = () => {
         <DropDown />
         <DropDown />
         <DropDown />
-        <DropDown />
       </FlexBox>
     </Panel>
   );

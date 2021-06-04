@@ -5,7 +5,7 @@ import { DragDropContext } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  min-height: 0;
+  min-height: 100%;
   background-color: white;
   display: grid;
   gap: 4px;
@@ -13,11 +13,6 @@ const Container = styled.div`
   grid-template-columns: repeat(5, minmax(3rem, auto));
   grid-auto-flow: column;
 `;
-
-// to be used later!
-const sortListAlphabetically = (list, prop) => {
-  return list.sort((a, b) => (a[prop] > b[prop] ? 1 : b[prop] > a[prop] ? -1 : 0));
-};
 
 function DragGrid() {
   const [dataState, setDataState] = useState(initialData);

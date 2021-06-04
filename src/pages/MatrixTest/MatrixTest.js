@@ -5,7 +5,6 @@ import { Container, NameBox, LastLine } from './Card-styling';
 
 const OuterContainer = styled.div`
   height: calc(100vh - 44px);
-  width: 100vw;
   background-color: black;
 
   display: grid;

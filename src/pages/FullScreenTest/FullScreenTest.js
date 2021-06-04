@@ -7,7 +7,7 @@ import GridFilters from '../../components/GridFilters/GridFilters';
 
 const OuterContainer = styled.div`
   height: calc(100vh - 44px);
-  width: 100vw;
+  min-width: 50rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -15,7 +15,6 @@ const OuterContainer = styled.div`
 
 const GridContainer = styled.div`
   flex: 1;
-  min-height: 0;
   display: flex;
   flex-direction: column;
 `;
@@ -23,8 +22,8 @@ const GridContainer = styled.div`
 const styles = {
   fullScreen: {
     top: 0,
-    position: 'fixed',
-    height: '100vh',
+    position: 'absolute',
+    minHeight: '100vh',
     width: '100vw',
     zIndex: '101',
   },
